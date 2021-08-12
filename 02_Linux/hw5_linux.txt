@@ -1,0 +1,151 @@
+ubuntu@ip-172-31-24-220:~$ cat >file1
+test
+test
+test
+test
+ubuntu@ip-172-31-24-220:~$ cp file1 file2
+ubuntu@ip-172-31-24-220:~$ ln -s file1 file3
+ubuntu@ip-172-31-24-220:~$ cat file3
+test
+test
+test
+test
+ubuntu@ip-172-31-24-220:~$ ls -la |grep file
+-rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file1
+-rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file2
+lrwxrwxrwx 1 ubuntu ubuntu    5 Jul 29 13:44 file3 -> file1
+ubuntu@ip-172-31-24-220:~$ ln -P file1 file4
+ubuntu@ip-172-31-24-220:~$ ls -la |grep file
+-rw-rw-r-- 2 ubuntu ubuntu   20 Jul 29 13:43 file1
+-rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file2
+lrwxrwxrwx 1 ubuntu ubuntu    5 Jul 29 13:44 file3 -> file1
+-rw-rw-r-- 2 ubuntu ubuntu   20 Jul 29 13:43 file4
+ubuntu@ip-172-31-24-220:~$ ls -lai |grep file
+256672 -rw-rw-r-- 2 ubuntu ubuntu   20 Jul 29 13:43 file1
+256673 -rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file2
+256674 lrwxrwxrwx 1 ubuntu ubuntu    5 Jul 29 13:44 file3 -> file1
+256672 -rw-rw-r-- 2 ubuntu ubuntu   20 Jul 29 13:43 file4
+ubuntu@ip-172-31-24-220:~$ rm file1
+ubuntu@ip-172-31-24-220:~$ ls -lai |grep file
+256108 -rw-r--r-- 1 ubuntu ubuntu  807 Feb 25  2020 .profile
+256673 -rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file2
+256674 lrwxrwxrwx 1 ubuntu ubuntu    5 Jul 29 13:44 file3 -> file1
+256672 -rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file4
+ubuntu@ip-172-31-24-220:~$ cat file3
+cat: file3: No such file or directory
+ubuntu@ip-172-31-24-220:~$ cat file4
+test
+test
+test
+test
+ubuntu@ip-172-31-24-220:~$ mv file2 file_2
+ubuntu@ip-172-31-24-220:~$ mv file3 file_3
+ubuntu@ip-172-31-24-220:~$ mv file4 file_4
+ubuntu@ip-172-31-24-220:~$ ls -la |grep file
+-rw-r--r-- 1 ubuntu ubuntu  807 Feb 25  2020 .profile
+-rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file_2
+lrwxrwxrwx 1 ubuntu ubuntu    5 Jul 29 13:44 file_3 -> file1
+-rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file_4
+ubuntu@ip-172-31-24-220:~$ ls -l
+total 16
+-rw-rw-r-- 1 ubuntu ubuntu 3338 Jul 29 12:51 cat_errors
+-rw-rw-r-- 1 ubuntu ubuntu   20 Jul 29 13:43 file_2
+lrwxrwxrwx 1 ubuntu ubuntu    5 Jul 29 13:44 file_3 -> file1
+-rw-rw-r-- 2 ubuntu ubuntu   20 Jul 29 13:43 file_4
+lrwxrwxrwx 1 ubuntu ubuntu    6 Jul 29 14:18 file_5 -> file_2
+-rw-rw-r-- 2 ubuntu ubuntu   20 Jul 29 13:43 file_6
+ubuntu@ip-172-31-24-220:~$ mkdir links
+ubuntu@ip-172-31-24-220:~$ mv file_3 links/
+ubuntu@ip-172-31-24-220:~$ mv file_4 links/
+ubuntu@ip-172-31-24-220:~$ mv file_5 links/
+ubuntu@ip-172-31-24-220:~$ ls -l links/
+total 8
+lrwxrwxrwx 1 ubuntu ubuntu  5 Jul 29 13:44 file_3 -> file1
+-rw-rw-r-- 2 ubuntu ubuntu 20 Jul 29 13:43 file_4
+lrwxrwxrwx 1 ubuntu ubuntu  6 Jul 29 14:18 file_5 -> file_2
+
+ubuntu@ip-172-31-24-220:~$ cat >read_write
+dsfsdfds
+32rd2ef34
+dfsdf343f
+ubuntu@ip-172-31-24-220:~$ chmod 664 read_write
+ubuntu@ip-172-31-24-220:~$ ls -l read_write
+-rw-rw-r-- 1 ubuntu ubuntu 29 Jul 29 17:10 read_write
+
+ubuntu@ip-172-31-24-220:~$ cat >only_owner
+121232
+sdsadsad
+cxzxcxzcxz23424
+dwqdewf
+ubuntu@ip-172-31-24-220:~$ chmod 006 only_owner
+ubuntu@ip-172-31-24-220:~$ ll only_owner
+-------rw- 1 ubuntu ubuntu 40 Jul 29 17:09 only_owner
+
+
+ubuntu@ip-172-31-24-220:~$ sudo groupadd developers
+ubuntu@ip-172-31-24-220:~$ sudo useradd developer1 -s /bin/bash -m -g developers
+ubuntu@ip-172-31-24-220:~$ grep develop /etc/group
+developers:x:1001:
+ubuntu@ip-172-31-24-220:~$ grep develop /etc/passwd
+developer1:x:1001:1001::/home/developer1:/bin/bash
+ubuntu@ip-172-31-24-220:~$ sudo useradd developer2 -s /bin/bash -m -g developers
+ubuntu@ip-172-31-24-220:~$ grep develop /etc/passwd
+developer1:x:1001:1001::/home/developer1:/bin/bash
+developer2:x:1002:1001::/home/developer2:/bin/bash
+ubuntu@ip-172-31-24-220
+
+ubuntu@ip-172-31-24-220:~$ mkdir develop_projects
+ubuntu@ip-172-31-24-220:~$ chmod 060 develop_projects/
+ubuntu@ip-172-31-24-220:~$ chmod g+s develop_projects/
+ubuntu@ip-172-31-24-220:~$ sudo chmod 070 develop_projects/
+ubuntu@ip-172-31-24-220:~$ ls -l develop_projects/
+ls: cannot open directory 'develop_projects/': Permission denied
+developer1@ip-172-31-24-220:/home/ubuntu$ touch develop_projects/testfile_developer1
+developer2@ip-172-31-24-220:/home/ubuntu$ touch develop_projects/testfile_developer2
+developer2@ip-172-31-24-220:/home/ubuntu$ ls -l develop_projects/
+total 0
+-rw-rw-r-- 1 ubuntu     ubuntu     0 Jul 29 15:35 test
+-rw-r--r-- 1 developer1 developers 0 Jul 29 16:03 testfile_developer1
+-rw-r--r-- 1 developer2 developers 0 Jul 29 16:03 testfile_developer2
+ubuntu@ip-172-31-24-220:~$ sudo chmod 770 develop_projects/
+ubuntu@ip-172-31-24-220:~$ mkdir develop_projects/temp_directory
+ubuntu@ip-172-31-24-220:~$ sudo chown ubuntu:developers develop_projects/temp_directory
+ubuntu@ip-172-31-24-220:~$ chmod +t develop_projects/temp_directory/
+
+developer1@ip-172-31-24-220:/home/ubuntu$ touch develop_projects/temp_directory/testfile_developer1
+developer2@ip-172-31-24-220:/home/ubuntu$ touch develop_projects/temp_directory/testfile_developer2
+developer2@ip-172-31-24-220:/home/ubuntu$ ls -l develop_projects/temp_directory/
+total 0
+-rw-r--r-- 1 developer1 developers 0 Jul 29 16:09 testfile_developer1
+-rw-r--r-- 1 developer2 developers 0 Jul 29 16:07 testfile_developer2
+developer2@ip-172-31-24-220:/home/ubuntu$ rm develop_projects/temp_directory/testfile_developer1
+rm: remove write-protected regular empty file 'develop_projects/temp_directory/testfile_developer1'? y
+rm: cannot remove 'develop_projects/temp_directory/testfile_developer1': Operation not permitted
+developer2@ip-172-31-24-220:/home/ubuntu$ rm develop_projects/temp_directory/testfile_developer2
+developer2@ip-172-31-24-220:/home/ubuntu$ ls -l develop_projects/temp_directory/
+total 0
+-rw-r--r-- 1 developer1 developers 0 Jul 29 16:09 testfile_developer1
+
+ubuntu@ip-172-31-24-220:~$ mkdir hiden_files
+ubuntu@ip-172-31-24-220:~$ touch hiden_files/00_file
+ubuntu@ip-172-31-24-220:~$ touch hiden_files/02_file
+ubuntu@ip-172-31-24-220:~$ touch hiden_files/01_file
+ubuntu@ip-172-31-24-220:~$ touch hiden_files/03_file
+ubuntu@ip-172-31-24-220:~$ chmod 300 hiden_files/
+ll hiden_files/
+ubuntu@ip-172-31-24-220:~$ ll hiden_files/
+ls: cannot open directory 'hiden_files/': Permission denied
+ubuntu@ip-172-31-24-220:~$ ll hiden_files/00_file
+-rw-rw-r-- 1 ubuntu ubuntu 0 Jul 29 17:05 hiden_files/00_file
+ubuntu@ip-172-31-24-220:~$ cat >hiden_files/00_file
+123
+qweweq
+asdasdsa
+213dsadsa
+ubuntu@ip-172-31-24-220:~$ cat hiden_files/00_file
+123
+qweweq
+asdasdsa
+213dsadsa
+ubuntu@ip-172-31-24-220:~$
+

@@ -1,0 +1,24 @@
+ubuntu@ip-172-31-6-252:~$ whoami
+ubuntu
+ubuntu@ip-172-31-6-252:~$ uname -a
+Linux ip-172-31-6-252 5.4.0-1045-aws #47-Ubuntu SMP Tue Apr 13 07:02:25 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+ubuntu@ip-172-31-6-252:~$ hostnamectl
+   Static hostname: ip-172-31-6-252
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: b52c3afc4ad94b3b826350fe246e0986
+           Boot ID: b49ddc856e2d420491935a5e3f59e58d
+    Virtualization: xen
+  Operating System: Ubuntu 20.04.2 LTS
+            Kernel: Linux 5.4.0-1045-aws
+      Architecture: x86-64
+ubuntu@ip-172-31-6-252:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 20.04.2 LTS
+Release:        20.04
+Codename:       focal
+ubuntu@ip-172-31-6-252:~$ cat /proc/version
+Linux version 5.4.0-1045-aws (buildd@lcy01-amd64-026) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #47-Ubuntu SMP Tue Apr 13 07:02:25 UTC 2021
+ubuntu@ip-172-31-6-252:~$
+
