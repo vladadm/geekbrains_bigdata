@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#ARGS="qwe"
+
+run_docker() {
+     docker run $ARGS --name mysqldb -e MYSQL_ROOT_PASSWORD=mysqlpwd -p3306:3306 -v $(pwd)/mysqldb:/var/lib/mysql -v $(pwd)/mysqlitems:/root mysql:8.0.26
+}
+
+start_docker() {
+    docker start $id
+}
+
+
+case $1 in 
+  "ri")
+  # Interactive run container
+    ARGS="-ti"
+    run_docker
+  ;;
+  "rd")
+  # Run container as daemon
+    ARGS="-d"
+    run_docker
+  ;;
+  "s")
+  # Start container
+    id="mysqldb"
+    start_docker
+  ;;
+  *)
+   echo "allow Only: < ri | rd | s | >
+         ri -- interactive,
+         rd -- daemon mode,
+         s  -- start container. default: mysqldb
+        "
+  ;;
+esac
+
+

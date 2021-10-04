@@ -1,0 +1,274 @@
+1) Установите СУБД MySQL. Создайте в домашней директории файл .my.cnf, задав в нем логин и пароль, который указывался при установке.
+
+Vladislav:03_SQL vladislav$ docker run -d --name mysqldb -e MYSQL_ROOT_PASSWORD=mysqlpwd -p3306:3306 -v $(pwd)/mysqldb:/var/lib/mysql -v $(pwd)/mysqlitems:/root mysql:8.0.26
+
+Vladislav:03_SQL vladislav$ docker exec -ti mysqldb bash
+root@8df443cb19b5:/# mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.02 sec)
+
+mysql>
+mysql> \q
+Bye
+root@8df443cb19b5:/# mysql
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+root@8df443cb19b5:/# vi /root/.my.cnf
+root@8df443cb19b5:/# cat /root/.my.cnf
+[client]
+password=mysqlpwd
+root@8df443cb19b5:/# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+2) Создайте базу данных example, разместите в ней таблицу users, состоящую из двух столбцов, числового id и строкового name.
+root@8df443cb19b5:/# mysql
+mysql>
+mysql> create database example;
+Query OK, 1 row affected (0.02 sec)
+mysql> use example;
+Database changed
+mysql> create table users (id INT, name VARCHAR(40));
+Query OK, 0 rows affected (0.05 sec)
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| example            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> show tables;
++-------------------+
+| Tables_in_example |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0.00 sec)
+mysql> desc users;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(40) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.04 sec)
+
+mysql>
+mysql> INSERT INTO users VALUES (001, 'John Devis');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO users VALUES (002, 'Vladislav Eldyshev');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from users;
++------+--------------------+
+| id   | name               |
++------+--------------------+
+|    1 | John Devis         |
+|    2 | Vladislav Eldyshev |
++------+--------------------+
+2 rows in set (0.01 sec)
+
+mysql>
+
+
+3) Создайте дамп базы данных example из предыдущего задания, разверните содержимое дампа в новую базу данных sample.
+
+root@8df443cb19b5:/# mysqldump example > users_dump.sql
+root@8df443cb19b5:/# cat users_dump.sql
+-- MySQL dump 10.13  Distrib 8.0.26, for Linux (x86_64)
+--
+-- Host: localhost    Database: example
+-- ------------------------------------------------------
+-- Server version	8.0.26
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int DEFAULT NULL,
+  `name` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'John Devis'),(2,'Vladislav Eldyshev');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-08-17 19:56:35
+root@8df443cb19b5:/# mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 19
+Server version: 8.0.26 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database sample;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> \q
+Bye
+root@8df443cb19b5:/# mysql -D sample < users_dump.sql
+root@8df443cb19b5:/# mysql -D sample
+mysql> show tables;
++------------------+
+| Tables_in_sample |
++------------------+
+| users            |
++------------------+
+1 row in set (0.00 sec)
+mysql> select * from users;
++------+--------------------+
+| id   | name               |
++------+--------------------+
+|    1 | John Devis         |
+|    2 | Vladislav Eldyshev |
++------+--------------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+4) (по желанию) Ознакомьтесь более подробно с документацией утилиты mysqldump. Создайте дамп единственной таблицы help_keyword базы данных mysql. Причем добейтесь того, чтобы дамп содержал только первые 100 строк таблицы.
+
+root@8df443cb19b5:/# cd ~
+root@8df443cb19b5:~# ls -l
+total 92
+drwxr-xr-x 3 root root    96 Jul 31 22:05 world-db
+-rw-r--r-- 1 root root 92916 Aug 17 20:03 world-db.tar.gz
+root@8df443cb19b5:~# cd world-db
+root@8df443cb19b5:~/world-db# ls -l
+total 392
+-rw-r--r-- 1 root root 398635 Jul 31 22:05 world.sql
+root@8df443cb19b5:~/world-db# mysql -e 'create database world'
+root@8df443cb19b5:~/world-db# mysql -e 'SHOW DATABASES'
++--------------------+
+| Database           |
++--------------------+
+| example            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sample             |
+| sys                |
+| world              |
++--------------------+
+root@8df443cb19b5:~/world-db# mysql -D world < world.sql
+root@8df443cb19b5:~/world-db# mysql -D world -e 'show tables'
++-----------------+
+| Tables_in_world |
++-----------------+
+| city            |
+| country         |
+| countrylanguage |
++-----------------+
+root@8df443cb19b5:~/world-db#
+root@8df443cb19b5:~/world-db# mysql -D world -e 'desc city'
++-------------+----------+------+-----+---------+----------------+
+| Field       | Type     | Null | Key | Default | Extra          |
++-------------+----------+------+-----+---------+----------------+
+| ID          | int      | NO   | PRI | NULL    | auto_increment |
+| Name        | char(35) | NO   |     |         |                |
+| CountryCode | char(3)  | NO   | MUL |         |                |
+| District    | char(20) | NO   |     |         |                |
+| Population  | int      | NO   |     | 0       |                |
++-------------+----------+------+-----+---------+----------------+
+root@8df443cb19b5:~/world-db# mysql -D world -e 'select count(*) from city'
++----------+
+| count(*) |
++----------+
+|     4079 |
++----------+
+root@8df443cb19b5:~/world-db#
+root@8df443cb19b5:~/world-db# mysqldump --opt --where="1 limit 100" world city > citi_dump_1000_rows.sql
+root@8df443cb19b5:~/world-db# mysql -e 'create database world_restory'
+root@8df443cb19b5:~/world-db# mysql world_restore < citi_dump_1000_rows.sql
+root@8df443cb19b5:~/world-db# mysql world_restore -e 'show tables'
++-------------------------+
+| Tables_in_world_restore |
++-------------------------+
+| city                    |
++-------------------------+
+root@8df443cb19b5:~/world-db# mysql world_restore -e 'select count(ID) from city'
++-----------+
+| count(ID) |
++-----------+
+|       100 |
++-----------+
+root@8df443cb19b5:~/world-db#
+
+
+
+
+

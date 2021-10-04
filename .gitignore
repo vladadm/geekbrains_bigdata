@@ -1,0 +1,5 @@
+*.DS_Store
+
+03_SQL/mysqldb
+03_SQL/mysqlitems
+*/.idea/
