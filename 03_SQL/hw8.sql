@@ -9,7 +9,7 @@ USE vk;
  * 
  */
 
-SELECT a.
+SELECT a.id , 
 
 
 

@@ -7,7 +7,7 @@
  * 
  */
 
-SELECT from_user_id , COUNT(*) as messages_from_user_id_7 
+SELECT from_user_id as  , COUNT(*) as messages_from_user_id_7 
    FROM messages 
    WHERE to_user_id = 7 GROUP BY from_user_id  ORDER BY messages_from_user_id_7 DESC LIMIT 1;
 

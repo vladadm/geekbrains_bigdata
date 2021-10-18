@@ -43,6 +43,7 @@ SELECT a.name AS product, b.name AS catalog_chapter
  * 
  */
 
+DROP TABLE IF EXISTS flights;
 CREATE TABLE flights (
 	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`from` VARCHAR(200),
@@ -57,12 +58,12 @@ INSERT INTO flights (`from`, `to`)
     ('omsk', 'irkutsk'),
     ('moscow', 'kazan');
 
+DROP TABLE IF EXISTS cities;
 CREATE TABLE cities(
   label VARCHAR(200),
   name VARCHAR(400)
 )
 
-DROP TABLE cities;
 INSERT INTO cities(label, name)
   VALUES
     ('moscow', 'Москва'),
