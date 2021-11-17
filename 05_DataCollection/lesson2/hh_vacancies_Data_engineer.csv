@@ -1,0 +1,81 @@
+site,vacancy_url,vac_class,title,company,city,compensation_min,compensation_max,currency
+https://hh.ru,https://hh.ru/vacancy/49594813,vacancy_premium,"Senior Data Engineer, Remote",Tribes.AI,Москва,3000.0,6000.0,USD
+https://hh.ru,https://hh.ru/vacancy/48939262,vacancy_premium,Data Scientist в Сбер,Сбер. Data Science,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49117256,vacancy_premium,Data QA Engineer,УП Руна Системс,Минск,,,
+https://hh.ru,https://hh.ru/vacancy/49473421,vacancy_premium,Data Analyst,ООО Glovo,Киев,,,
+https://hh.ru,https://hh.ru/vacancy/48795688,vacancy_premium,"Data Engineer, дивизион «Занять и сберегать»",Сбер. IT,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49161429,vacancy_premium,Lead Data Engineer,Сбер для экспертов,Санкт-Петербург,,,
+https://hh.ru,https://hh.ru/vacancy/46048820,vacancy_premium,Data Scientist (команда Поиска),ООО HeadHunter::Analytics/Data Science,"Москва, Алексеевская",,,
+https://hh.ru,https://hh.ru/vacancy/47914759,vacancy_standard_plus,Junior Data Engineer (Python),DataFork,"Москва, Выставочная и еще 2 ",150000.0,190000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49413799,vacancy_standard_plus,Data Engineer,Метр Квадратный,Москва,210000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49515685,vacancy_standard_plus,Стажер Data Engineer,Билайн,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49244803,vacancy_standard_plus,Middle Data Engineer,Educate Online Inc,Москва,180000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49299242,vacancy_standard_plus,Инженер данных - аналитик/Junior Data Enginer /Analytic,ООО Комета,Москва,100000.0,100000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49526635,vacancy_standard_plus,Python Data Engineer,ООО ФармХаб,Москва,180000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49005874,vacancy_standard_plus,Data Engineer,Точка,Екатеринбург,,200000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49589425,vacancy_standard_plus,Data engineer (middle/senior),HR Prime,Москва,200000.0,350000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/48975806,vacancy_standard_plus,Инженер данных (Data Engineer),ООО Студия Данных,"Москва, Алексеевская",200000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49186295,vacancy_standard_plus,Data engineer,ООО Ок Софт,Москва,220000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49497206,vacancy_standard_plus,Data Engineer / ETL Developer,Renaissance Capital,Москва,,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49252631,vacancy_standard_plus,Python developer / Data engineer (Middle),Wunder Fund,"Москва, Белорусская",150000.0,300000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/48764027,vacancy_standard,Senior data engineer,EXE.CTLY,Москва,300000.0,400000.0,RUB
+https://hh.ru,https://hhcdn.ru/click,vacancy_standard_plus,Data Engineer/ETL Developer,ООО Globus.ai,Москва,,3000.0,EUR
+https://hh.ru,https://hh.ru/vacancy/49594813,vacancy_premium,"Senior Data Engineer, Remote",Tribes.AI,Москва,3000.0,6000.0,USD
+https://hh.ru,https://hh.ru/vacancy/49117256,vacancy_premium,Data QA Engineer,УП Руна Системс,Минск,,,
+https://hh.ru,https://hh.ru/vacancy/48939262,vacancy_premium,Data Scientist в Сбер,Сбер. Data Science,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49161429,vacancy_premium,Lead Data Engineer,Сбер для экспертов,Санкт-Петербург,,,
+https://hh.ru,https://hh.ru/vacancy/48795688,vacancy_premium,"Data Engineer, дивизион «Занять и сберегать»",Сбер. IT,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49473421,vacancy_premium,Data Analyst,ООО Glovo,Киев,,,
+https://hh.ru,https://hh.ru/vacancy/46048820,vacancy_premium,Data Scientist (команда Поиска),ООО HeadHunter::Analytics/Data Science,"Москва, Алексеевская",,,
+https://hh.ru,https://hh.ru/vacancy/49471838,vacancy_premium,Data Analyst Intern (Operations),ООО Glovo,Киев,,,
+https://hh.ru,https://hh.ru/vacancy/45507396,vacancy_premium,Machine Learning Team Lead,APALON,"Минск, Вокзальная и еще 2 ",,,
+https://hh.ru,https://hh.ru/vacancy/49413799,vacancy_standard_plus,Data Engineer,Метр Квадратный,Москва,210000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/48975806,vacancy_standard_plus,Инженер данных (Data Engineer),ООО Студия Данных,"Москва, Алексеевская",200000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49515685,vacancy_standard_plus,Стажер Data Engineer,Билайн,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49244803,vacancy_standard_plus,Middle Data Engineer,Educate Online Inc,Москва,180000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/47914759,vacancy_standard_plus,Junior Data Engineer (Python),DataFork,"Москва, Выставочная и еще 2 ",150000.0,190000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49649287,vacancy_standard,Data Engineer,Citadel ID Inc.,Москва,4000.0,7000.0,USD
+https://hh.ru,https://hh.ru/vacancy/49589425,vacancy_standard_plus,Data engineer (middle/senior),HR Prime,Москва,200000.0,350000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49526635,vacancy_standard_plus,Python Data Engineer,ООО ФармХаб,Москва,180000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49252631,vacancy_standard_plus,Python developer / Data engineer (Middle),Wunder Fund,"Москва, Белорусская",150000.0,300000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49255493,vacancy_standard_plus,Data Engineer,App in the Air,Москва,3000.0,,USD
+https://hh.ru,https://hh.ru/vacancy/49594813,vacancy_premium,"Senior Data Engineer, Remote",Tribes.AI,Москва,3000.0,6000.0,USD
+https://hh.ru,https://hh.ru/vacancy/48939262,vacancy_premium,Data Scientist в Сбер,Сбер. Data Science,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49117256,vacancy_premium,Data QA Engineer,УП Руна Системс,Минск,,,
+https://hh.ru,https://hh.ru/vacancy/49473421,vacancy_premium,Data Analyst,ООО Glovo,Киев,,,
+https://hh.ru,https://hh.ru/vacancy/48795688,vacancy_premium,"Data Engineer, дивизион «Занять и сберегать»",Сбер. IT,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49161429,vacancy_premium,Lead Data Engineer,Сбер для экспертов,Санкт-Петербург,,,
+https://hh.ru,https://hh.ru/vacancy/46048820,vacancy_premium,Data Scientist (команда Поиска),ООО HeadHunter::Analytics/Data Science,"Москва, Алексеевская",,,
+https://hh.ru,https://hh.ru/vacancy/47914759,vacancy_standard_plus,Junior Data Engineer (Python),DataFork,"Москва, Выставочная и еще 2 ",150000.0,190000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49515685,vacancy_standard_plus,Стажер Data Engineer,Билайн,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49244803,vacancy_standard_plus,Middle Data Engineer,Educate Online Inc,Москва,180000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49413799,vacancy_standard_plus,Data Engineer,Метр Квадратный,Москва,210000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49299242,vacancy_standard_plus,Инженер данных - аналитик/Junior Data Enginer /Analytic,ООО Комета,Москва,100000.0,100000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/48975806,vacancy_standard_plus,Инженер данных (Data Engineer),ООО Студия Данных,"Москва, Алексеевская",200000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/48837236,vacancy_standard,Data Engineer,Playkot,Санкт-Петербург,200000.0,370000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49526635,vacancy_standard_plus,Python Data Engineer,ООО ФармХаб,Москва,180000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/48837237,vacancy_standard,Data Engineer,Playkot,Москва,200000.0,370000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49005874,vacancy_standard_plus,Data Engineer,Точка,Екатеринбург,,200000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49589425,vacancy_standard_plus,Data engineer (middle/senior),HR Prime,Москва,200000.0,350000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49497206,vacancy_standard_plus,Data Engineer / ETL Developer,Renaissance Capital,Москва,,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49252631,vacancy_standard_plus,Python developer / Data engineer (Middle),Wunder Fund,"Москва, Белорусская",150000.0,300000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49594813,vacancy_premium,"Senior Data Engineer, Remote",Tribes.AI,Москва,3000.0,6000.0,USD
+https://hh.ru,https://hh.ru/vacancy/49117256,vacancy_premium,Data QA Engineer,УП Руна Системс,Минск,,,
+https://hh.ru,https://hh.ru/vacancy/48939262,vacancy_premium,Data Scientist в Сбер,Сбер. Data Science,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/48795688,vacancy_premium,"Data Engineer, дивизион «Занять и сберегать»",Сбер. IT,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49473421,vacancy_premium,Data Analyst,ООО Glovo,Киев,,,
+https://hh.ru,https://hh.ru/vacancy/49161429,vacancy_premium,Lead Data Engineer,Сбер для экспертов,Санкт-Петербург,,,
+https://hh.ru,https://hh.ru/vacancy/46048820,vacancy_premium,Data Scientist (команда Поиска),ООО HeadHunter::Analytics/Data Science,"Москва, Алексеевская",,,
+https://hh.ru,https://hh.ru/vacancy/47914759,vacancy_standard_plus,Junior Data Engineer (Python),DataFork,"Москва, Выставочная и еще 2 ",150000.0,190000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49515685,vacancy_standard_plus,Стажер Data Engineer,Билайн,Москва,,,
+https://hh.ru,https://hh.ru/vacancy/49413799,vacancy_standard_plus,Data Engineer,Метр Квадратный,Москва,210000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49244803,vacancy_standard_plus,Middle Data Engineer,Educate Online Inc,Москва,180000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49299242,vacancy_standard_plus,Инженер данных - аналитик/Junior Data Enginer /Analytic,ООО Комета,Москва,100000.0,100000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/48975806,vacancy_standard_plus,Инженер данных (Data Engineer),ООО Студия Данных,"Москва, Алексеевская",200000.0,250000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/48837236,vacancy_standard,Data Engineer,Playkot,Санкт-Петербург,200000.0,370000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49526635,vacancy_standard_plus,Python Data Engineer,ООО ФармХаб,Москва,180000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49005874,vacancy_standard_plus,Data Engineer,Точка,Екатеринбург,,200000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/48837237,vacancy_standard,Data Engineer,Playkot,Москва,200000.0,370000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49589425,vacancy_standard_plus,Data engineer (middle/senior),HR Prime,Москва,200000.0,350000.0,RUB
+https://hh.ru,https://hh.ru/vacancy/49186295,vacancy_standard_plus,Data engineer,ООО Ок Софт,Москва,220000.0,,RUB
+https://hh.ru,https://hh.ru/vacancy/49497206,vacancy_standard_plus,Data Engineer / ETL Developer,Renaissance Capital,Москва,,250000.0,RUB
