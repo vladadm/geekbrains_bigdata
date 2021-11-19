@@ -178,7 +178,7 @@ class HH:
 
 def to_mongo(json):
     vacancies = mongo_db.vac_collection
-    if not mongo_db['vacancies'].find({'vacancy_url': json['vacancy_url']}).count() > 0:
+    if not mongo_db['vacancies'].count_documents({'vacancy_url': json['vacancy_url']}) > 0:
         mongo_db.vacancies.insert_one(json)
         print("=== Новая вакансия: сохранено\n")
     print('=== Вакансия уже содежиться в БД\n')
@@ -190,17 +190,17 @@ def find_vacancies(compens):
         '==': '$eq',
         '!=': '$ne',
         '>': '$gt',
-        '=>': '$gte',
+        '>=': '$gte',
         '<': '$lt',
-        '<=': '$lte',
+        '=<': '$lte',
         'in': '$in',
         'notin': '$nin',
         'or': '$or',
     }
     vacs = mongo_db['vacancies'].find(
         {oper.get('or'): [
-            {'compensation_min': {oper.get('=>'): compens}},
-            {'compensation_max': {oper.get('=>'): compens}}
+            {'compensation_min': {oper.get('>='): compens}},
+            {'compensation_max': {oper.get('>='): compens}}
         ]}
     )
     print(f'Вакансии с компенсацие {compens} и выше:\n {json.dumps([x for x in vacs], default=str, indent=2, ensure_ascii=False)}')
