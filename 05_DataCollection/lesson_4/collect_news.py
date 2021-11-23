@@ -35,7 +35,7 @@ def get_dom(url):
     }
 
     data = requests.get(url, headers=headers)
-
+    print(data.url)
     if 'showcaptcha' in data.url:
         print(data.url)
         raise Exception(f'Сайт {data.url.split("/")[2]} требует капчу!')
@@ -145,15 +145,17 @@ def yandex_news():
     url = 'http://yandex.ru/news/'
     _url, dom = get_dom(url)
 
-    day_news = dom.xpath("//div[contains(@class, 'news-top-flexible-stories news-app__top')]//a[@class='mg-card__link']")
-    #day_news = dom.xpath("//div[contains(@class, 'news-top-flexible-stories news-app__top')]//div[contains(@class,'mg-grid__col mg-grid__col_xs')]")
+    #day_news = dom.xpath("//div[contains(@class, 'news-top-flexible-stories news-app__top')]//a[@class='mg-card__link']")
+    day_news = dom.xpath("//div[contains(@class, 'news-top-flexible-stories news-app__top')]//div[contains(@class,'mg-grid__col mg-grid__col_xs')]")
 
     for n in day_news:
         _n = {}
         _n['titel'] = n.xpath(".//h2[@class='mg-card__title']/text()")[0].replace('\xa0', ' ')
         _n['href'] = n.xpath(".//a[@class='mg-card__link']/@href")[0]
         _n['published'] = n.xpath(".//span[@class='mg-card-source__time']/text()")[0]
-        source = get_dom(_n['href'])[1]
+        news_page = get_dom(_n['href'])[1]
+        source = news_page.xpath("//a[@class='mg-story__title-link']/@href")
+        _n['source'] = source.split('/')[2]
 
         print(_n)
 
@@ -176,6 +178,8 @@ def date_convert(date, portal):
         date = datetime.strptime(date, '%H:%M, %d %m %Y')
     if portal == 'https://news.mail.ru':
         date = datetime.fromisoformat(date)
+    if portal == 'http://yandex.ru/news/':
+        pass
 
     # '01:10, 23 11 2021'
     date = date.strftime('%d.%m.%Y %H:%M')
