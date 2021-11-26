@@ -7,12 +7,14 @@ from pprint import pprint
 from datetime import datetime
 from pymongo import MongoClient
 
+
 mongo_username = 'admin'
 mongo_password = 'admin'
 mongo_client = MongoClient('mongodb://%s:%s@127.0.0.1' % (mongo_username, mongo_password))
 # Указатель на базу данных, может быть множество
 mongo_db = mongo_client['hot_news']
 
+# Темплейт json новости
 NEWS_json = {
     'published_time': '',
     'published_date': '',
@@ -21,6 +23,7 @@ NEWS_json = {
     'href': '',
 }
 
+# Сатистика сохранения новостей
 stat = {
     'saved': 0,
     'unsaved': 0,
@@ -28,6 +31,11 @@ stat = {
 
 
 def get_dom(url):
+    """
+    Функция получения разметки страницы и преобразования в dom
+    :param url: строка с url адресом
+    :return: список [url, dom ]
+    """
     headers = {
         'Content-Type': 'text/html; charset=utf-8',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)' +
@@ -45,6 +53,10 @@ def get_dom(url):
 
 
 def lenta_news():
+    """
+    Функция скрбинга новостей с портала lenta.ru
+    :return:
+    """
     print('=== Топ новости (lenta.ru)')
     url = 'https://lenta.ru'
 
@@ -95,6 +107,10 @@ def lenta_news():
 
 
 def mail_news():
+    """
+    Функция скрбинга новостей с портала news.mail.ru
+    :return:
+    """
     print('=== Топ новости (news.mail.ru)')
     url = 'https://news.mail.ru'
     dom = get_dom(url)[1]
@@ -141,6 +157,10 @@ def mail_news():
 
 
 def yandex_news():
+    """
+    Функция скрбинга новостей с портала yandex.ru/news
+    :return:
+    """
     print('=== Топ новости (yandex.ru/news)')
     url = 'http://yandex.ru/news/'
     _url, dom = get_dom(url)
@@ -161,6 +181,12 @@ def yandex_news():
 
 
 def date_convert(date, portal):
+    """
+    Функция преобразования даты
+    :param date: строка с датой
+    :param portal: строка с url портала
+    :return: массив вида ['время', 'дата']
+    """
     months = {
         'января': '01',
         'февраля': '02',
@@ -187,12 +213,11 @@ def date_convert(date, portal):
 
 
 def to_mongo(json):
-    '''
+    """
     Функция записи данных в БД
     :param json:
     :return:
-    '''
-
+    """
 
     if not mongo_db['hot_news'].count_documents({'href': json['href']}) > 0:
         mongo_db['hot_news'].insert_one(json)
@@ -201,10 +226,6 @@ def to_mongo(json):
     else:
         print('=== Новость уже содежиться в БД\n')
         stat['unsaved'] += 1
-
-
-
-
 
 
 if __name__ == "__main__":
