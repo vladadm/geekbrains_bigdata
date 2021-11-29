@@ -7,3 +7,4 @@
 **/kaggle_data/**
 **/api_key
 **/datadir
+__pycache__/
