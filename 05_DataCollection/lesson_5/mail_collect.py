@@ -11,7 +11,7 @@ import time
 
 from pymongo import MongoClient
 
-
+# ============= Mongo ==============
 mongo_username = 'admin'
 mongo_password = 'admin'
 mongo_client = MongoClient('mongodb://%s:%s@127.0.0.1' % (mongo_username, mongo_password))
@@ -23,8 +23,7 @@ stat = {
     'unsaved': 0,
 }
 
-
-
+# ============ Selenium ============
 options = Options()
 options.add_argument('--window-size=1900,1000')
 
@@ -44,7 +43,6 @@ pw_form = driver.find_element(By.XPATH, '//input[@data-testid="password-input"]'
 pw_form.click()
 pw_form.send_keys('NextPassword172#')
 
-#
 driver.find_element(By.XPATH, '//button[@data-testid="login-to-mail"]').click()
 
 page = driver.find_elements(By.XPATH, '//a[contains(@href, "/inbox/0:")]')
@@ -56,8 +54,8 @@ def get_mails():
     page = driver.find_elements(By.XPATH, '//a[contains(@href, "/inbox/0:")]')
     for i in page:
         href = i.get_attribute('href')
-        id = href.split(":")[2]
-        #print(id)
+        # id = href.split(":")[2]
+        # print(id)
         mail_id.add(href)
     print(len(mail_id))
 
@@ -67,12 +65,10 @@ def push_down(count):
     for i in range(count):
         count = len(mail_id)
         actions = ActionChains(driver)
-        # articles = driver.find_elements(By.ID, 'article')
         actions.send_keys(Keys.DOWN)
-        # actions.move_to_element(articles[-1])
         actions.perform()
         s = s + 1
-        print(s )
+        print(s)
         time.sleep(0.2)
         get_mails()
         if len(mail_id) > count:
@@ -91,8 +87,6 @@ def mail_detail(mail_set):
         date = head.find_element(By.CLASS_NAME, 'letter__date').text
         subject = driver.find_element(By.CLASS_NAME, 'thread__subject').text
 
-        #body = driver.find_elements(By.XPATH, "//div[@class='letter__body']//div[contains(@cladd, readmsg-msg)]//tbody")
-        #body = body[0].text
         body = driver.find_element(By.XPATH, "//div[@class='letter__body']").text
 
         print(sender, date, subject, )
@@ -105,6 +99,7 @@ def mail_detail(mail_set):
         })
         mail_List.append(m)
     return mail_List
+
 
 def to_mongo(json):
     """
@@ -120,6 +115,7 @@ def to_mongo(json):
     else:
         print('=== Письмо уже содежиться в БД\n')
         stat['unsaved'] += 1
+
 
 get_mails()
 push_down(40)
