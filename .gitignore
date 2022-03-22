@@ -12,3 +12,4 @@ __pycache__/
 07_Hadoop/hadoop_cluster
 07_Hadoop/**/*.csv
 07_Hadoop/docker*
+06_DataAnalitycs/**/*.rar
