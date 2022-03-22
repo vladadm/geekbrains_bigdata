@@ -8,3 +8,7 @@
 **/api_key
 **/datadir
 __pycache__/
+07_Hadoop/**/*.zip
+07_Hadoop/hadoop_cluster
+07_Hadoop/**/*.csv
+07_Hadoop/docker*
